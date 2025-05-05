@@ -5,17 +5,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Smart Serve - Login</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .login-container {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-image: url('college.jpg'); /* Replace with your image name */
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+
+    .logo {
+      width: 150px;
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+      padding: 30px;
+      border-radius: 8px;
+    }
+
+    input {
+      padding: 10px;
+      margin: 10px;
+      width: 250px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Smart Serve</h1>
+  <div class="login-container">
+    <img src="logo.png" alt="Smart Serve Logo" class="logo"> <!-- Replace with your logo -->
     <form action="canteens.html" onsubmit="return fakeLogin();">
+      <h1>Smart Serve</h1>
       <h2>Login</h2>
       <input type="text" id="login" placeholder="Login ID" required />
       <input type="password" id="password" placeholder="Password" required />
       <button type="submit">Login</button>
     </form>
   </div>
+
   <script>
     function fakeLogin() {
       return true; // Fake login, always proceeds
