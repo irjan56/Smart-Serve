@@ -1,1 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Select Canteen</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('bg.jpg'); /* Add your background */
+      background-size: cover;
+      background-position: center;
+    }
 
+    .main-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 40px;
+      background-color: rgba(255, 255, 255, 0.9);
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    .left-section {
+      flex: 2;
+    }
+
+    .logo {
+      width: 180px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 48px;
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 36px;
+      color: #444;
+      margin-bottom: 30px;
+    }
+
+    .canteen-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+
+    .canteen-item {
+      display: flex;
+      align-items: center;
+      background-color: #f8f8f8;
+      padding: 30px;
+      border-radius: 15px;
+      transition: 0.3s;
+    }
+
+    .canteen-item:hover {
+      background-color: #e0f0ff;
+    }
+
+    .canteen-icon {
+      width: 120px;
+      height: 120px;
+      margin-right: 30px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .canteen-name {
+      font-size: 36px;
+      color: #222;
+      text-decoration: none;
+    }
+
+    .right-section {
+      flex: 1;
+      padding-left: 40px;
+    }
+
+    .right-section img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      .main-container {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .canteen-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .right-section {
+        padding-left: 0;
+        margin-top: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <div class="left-section">
+      <img src="logo.jpg" alt="Smart Serve Logo" class="logo" />
+      <h1>Smart Serve</h1>
+      <h2>Select a Canteen</h2>
+
+      <div class="canteen-grid">
+        <div class="canteen-item">
+          <img src="engg.jpg" class="canteen-icon" />
+          <a href="menu.html" class="canteen-name">Engineering Canteen</a>
+        </div>
+        <div class="canteen-item">
+          <img src="mba.jpg" class="canteen-icon" />
+          <a href="menu.html" class="canteen-name">MBA Canteen</a>
+        </div>
+        <div class="canteen-item">
+          <img src="nescafe.jpg" class="canteen-icon" />
+          <a href="menu.html" class="canteen-name">NESCAFÉ</a>
+        </div>
+        <div class="canteen-item">
+          <img src="cbar.jpg" class="canteen-icon" />
+          <a href="menu.html" class="canteen-name">C-BAR Canteen</a>
+        </div>
+        <div class="canteen-item" style="grid-column: span 2; justify-content: center;">
+          <img src="mess.jpg" class="canteen-icon" />
+          <a href="menu.html" class="canteen-name">Sinhgad Mess</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-section">
+      <img src="student.jpg" alt="Students at Canteen" />
+    </div>
+  </div>
+</body>
+</html>
