@@ -20,27 +20,31 @@
       justify-content: space-between;
       align-items: flex-start;
       min-height: 100vh;
-      padding: 30px;
+      padding: 40px;
       background-color: rgba(255, 255, 255, 0.8);
       box-sizing: border-box;
     }
 
     .left-section {
-      max-width: 65%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 70%;
     }
 
     .logo {
-      width: 180px;
-      margin-bottom: 30px;
+      width: 200px;
+      margin-bottom: 20px;
     }
 
     h1 {
-      color: #2c3e50;
+      color: #007bff; /* Smart Serve color */
       margin-bottom: 10px;
+      font-size: 40px;
     }
 
     h2 {
-      color: #007bff;
+      color: #2c3e50; /* Different color for 'Select a Canteen' */
       margin-bottom: 40px;
       font-size: 32px;
     }
@@ -48,13 +52,16 @@
     ul {
       list-style: none;
       padding: 0;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* Display in 2 columns */
       gap: 30px;
+      width: 100%;
     }
 
     li {
-      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     li a {
@@ -68,6 +75,7 @@
       border-radius: 10px;
       transition: 0.3s;
       width: 100%;
+      justify-content: center;
     }
 
     li a:hover {
@@ -107,6 +115,10 @@
         width: 60px; /* Smaller images on smaller screens */
         height: 60px;
       }
+
+      ul {
+        grid-template-columns: repeat(1, 1fr); /* Stack items vertically on smaller screens */
+      }
     }
   </style>
 </head>
@@ -120,4 +132,13 @@
         <li><a href="menu.html"><img src="engg.jpg" class="canteen-icon" />Engineering Canteen</a></li>
         <li><a href="menu.html"><img src="mba.jpg" class="canteen-icon" />MBA Canteen</a></li>
         <li><a href="menu.html"><img src="nescafe.jpg" class="canteen-icon" />NESCAFÉ</a></li>
-        <li><a href="menu.html"><img src="cbar.jpg" class="canteen-icon" />C-BAR Canteen</
+        <li><a href="menu.html"><img src="cbar.jpg" class="canteen-icon" />C-BAR Canteen</a></li>
+        <li><a href="menu.html"><img src="mess.jpg" class="canteen-icon" />Sinhgad Mess</a></li>
+      </ul>
+    </div>
+    <div class="right-section">
+      <img src="student.jpg" alt="Students in Canteen" />
+    </div>
+  </div>
+</body>
+</html>
