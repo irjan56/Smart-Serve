@@ -2,124 +2,121 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Item Details</title>
   <style>
     body {
-      background-image: url('item.bg.jpg');
-      background-size: cover;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      color: white;
-      height: 100vh;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      font-family: Arial;
+      padding: 20px;
+      background-color: #f5f5f5;
     }
-
     .container {
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 30px;
-      border-radius: 10px;
-      width: 80%;
       max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-
-    h1 {
-      color: violet;
-    }
-
     img {
       width: 100%;
-      max-width: 250px;
       height: auto;
-      margin-bottom: 20px;
-      border-radius: 8px;
+      border-radius: 10px;
     }
-
-    .price {
-      font-size: 24px;
+    h2 {
+      text-align: center;
+      color: #333;
     }
-
-    .total-price {
-      font-size: 28px;
-      color: red;
-      margin-top: 20px;
+    .info {
+      text-align: center;
+      margin: 10px 0;
     }
-
-    .form-container {
-      display: flex;
-      justify-content: space-between;
+    .form-group {
+      margin: 15px 0;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .total {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
       margin: 20px 0;
     }
-
-    .form-container input {
+    button {
+      width: 100%;
       padding: 10px;
-      font-size: 16px;
-      width: 45%;
-      border-radius: 5px;
-    }
-
-    .proceed-button {
-      background-color: violet;
+      background: green;
       color: white;
-      font-size: 18px;
-      padding: 15px;
       border: none;
+      font-size: 18px;
       border-radius: 5px;
       cursor: pointer;
-      margin-top: 20px;
     }
-
-    .proceed-button:hover {
-      background-color: purple;
+    button:hover {
+      background: darkgreen;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <img id="meal-image" src="" alt="Meal Image">
-    <h1 id="meal-name">Loading...</h1>
-    <div class="price">
-      Price: ₹<span id="meal-price">0</span>
+    <img id="item-image" src="" alt="Item" />
+    <h2 id="item-name">Item Name</h2>
+    <div class="info" id="item-price">Price: ₹0</div>
+
+    <div class="form-group">
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" value="1" min="1" />
     </div>
 
-    <div class="form-container">
-      <input type="number" id="quantity" value="1" min="1" onchange="updateTotalPrice()" />
-      <input type="time" id="time" />
+    <div class="form-group">
+      <label for="time">Select Time:</label>
+      <select id="time">
+        <option>9:00 AM</option>
+        <option>12:00 PM</option>
+        <option>3:00 PM</option>
+        <option>6:00 PM</option>
+      </select>
     </div>
 
-    <div class="total-price">
-      Total: ₹<span id="total-price">0</span>
-    </div>
+    <div class="total" id="total-price">Total: ₹0</div>
 
-    <button class="proceed-button" onclick="proceedToPay()">Proceed to Pay</button>
+    <button onclick="proceedToPay()">Proceed to Pay</button>
   </div>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const mealName = params.get("name");
-    const mealPrice = parseInt(params.get("price"));
-    const mealImage = params.get("image");
+    // Parse query parameters from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name');
+    const price = parseInt(urlParams.get('price'));
+    const image = urlParams.get('image');
 
-    document.getElementById("meal-name").innerText = mealName;
-    document.getElementById("meal-price").innerText = mealPrice;
-    document.getElementById("meal-image").src = mealImage;
+    document.getElementById('item-name').textContent = name;
+    document.getElementById('item-price').textContent = Price: ₹${price};
+    document.getElementById('item-image').src = image;
 
-    function updateTotalPrice() {
-      const quantity = parseInt(document.getElementById("quantity").value);
-      const total = quantity * mealPrice;
-      document.getElementById("total-price").innerText = total;
+    const quantityInput = document.getElementById('quantity');
+    const totalPrice = document.getElementById('total-price');
+
+    function updateTotal() {
+      const quantity = parseInt(quantityInput.value);
+      const total = quantity * price;
+      totalPrice.textContent = Total: ₹${total};
     }
+
+    quantityInput.addEventListener('input', updateTotal);
+    updateTotal();
 
     function proceedToPay() {
-      const quantity = document.getElementById("quantity").value;
-      const time = document.getElementById("time").value;
-      alert(Proceeding to pay for ${mealName}.\nQuantity: ${quantity}\nTime: ${time}\nTotal: ₹${quantity * mealPrice});
+      alert(Order placed for ${quantityInput.value} ${name}(s) at ${document.getElementById('time').value}.);
     }
-
-    updateTotalPrice();
   </script>
 </body>
 </html>
