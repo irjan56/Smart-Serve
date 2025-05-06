@@ -3,58 +3,115 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NESCAFÉ Canteen Menu</title>
+  <title>NESCAFE Canteen Menu</title>
   <style>
     body {
+      background: linear-gradient(to right, #f5f7fa, #c3cfe2);
       font-family: Arial, sans-serif;
-      padding: 20px;
-      background-image: url('nes.bg.jpg');
-      background-size: cover;
-      background-position: center;
-    }
-    h1, h2 {
       text-align: center;
-      color: #ffffff;
-      text-shadow: 1px 1px 4px #000;
     }
-    .menu-item {
+    h1 {
+      color: #333;
+      margin-top: 20px;
+    }
+    .menu {
       display: flex;
-      align-items: center;
-      background: rgba(255, 255, 255, 0.9);
-      margin: 10px auto;
-      padding: 10px;
-      border-radius: 10px;
-      max-width: 600px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 20px;
     }
-    .menu-item img {
-      width: 60px;
-      height: 60px;
+    .item {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      margin: 15px;
+      padding: 15px;
+      width: 200px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .item:hover {
+      transform: scale(1.05);
+    }
+    .item img {
+      width: 100%;
+      height: 120px;
       object-fit: cover;
       border-radius: 8px;
-      margin-right: 15px;
     }
-    .menu-text {
+    .item h3 {
+      margin: 10px 0 5px;
       font-size: 18px;
-      color: #333;
+    }
+    .item p {
+      margin: 0;
+      font-size: 16px;
+      color: #555;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
     }
   </style>
 </head>
 <body>
-  <h1>Smart Serve</h1>
-  <h2>NESCAFÉ Canteen Menu</h2>
-
-  <div class="menu-item"><img src="kit.jpg"><div class="menu-text">KitKat Shake – ₹200</div></div>
-  <div class="menu-item"><img src="straw.jpg"><div class="menu-text">Strawberry Thick Shake – ₹150</div></div>
-  <div class="menu-item"><img src="hot.jpg"><div class="menu-text">Hot Chocolate – ₹70</div></div>
-  <div class="menu-item"><img src="plain.jpg"><div class="menu-text">Plain Maggi – ₹60</div></div>
-  <div class="menu-item"><img src="vegetable.jpg"><div class="menu-text">Vegetable Maggi – ₹70</div></div>
-  <div class="menu-item"><img src="chilli.jpg"><div class="menu-text">Chilli Maggi – ₹60</div></div>
-  <div class="menu-item"><img src="cheese.jpg"><div class="menu-text">Cheese Pasta – ₹80</div></div>
-  <div class="menu-item"><img src="burger.jpg"><div class="menu-text">Veg Burger – ₹60</div></div>
-  <div class="menu-item"><img src="barbe.jpg"><div class="menu-text">Barbeque Sandwich – ₹90</div></div>
-  <div class="menu-item"><img src="green.jpg"><div class="menu-text">Green Tea – ₹40</div></div>
-  <div class="menu-item"><img src="lemon.jpg"><div class="menu-text">Lemon Tea – ₹40</div></div>
-
+  <h1>NESCAFE Canteen Menu</h1>
+  <div class="menu">
+    <a href="item.html?name=KitKat Shake&price=200&image=kit.jpg" class="item">
+      <img src="kit.jpg" alt="KitKat Shake">
+      <h3>KitKat Shake</h3>
+      <p>Rs. 200</p>
+    </a>
+    <a href="item.html?name=Strawberry Thick Shake&price=150&image=straw.jpg" class="item">
+      <img src="straw.jpg" alt="Strawberry Thick Shake">
+      <h3>Strawberry Thick Shake</h3>
+      <p>Rs. 150</p>
+    </a>
+    <a href="item.html?name=Hot Chocolate&price=70&image=hot.jpg" class="item">
+      <img src="hot.jpg" alt="Hot Chocolate">
+      <h3>Hot Chocolate</h3>
+      <p>Rs. 70</p>
+    </a>
+    <a href="item.html?name=Plain Maggi&price=60&image=plain.jpg" class="item">
+      <img src="plain.jpg" alt="Plain Maggi">
+      <h3>Plain Maggi</h3>
+      <p>Rs. 60</p>
+    </a>
+    <a href="item.html?name=Vegetable Maggi&price=70&image=vegetable.jpg" class="item">
+      <img src="vegetable.jpg" alt="Vegetable Maggi">
+      <h3>Vegetable Maggi</h3>
+      <p>Rs. 70</p>
+    </a>
+    <a href="item.html?name=Chilli Maggi&price=60&image=chilli.jpg" class="item">
+      <img src="chilli.jpg" alt="Chilli Maggi">
+      <h3>Chilli Maggi</h3>
+      <p>Rs. 60</p>
+    </a>
+    <a href="item.html?name=Cheese Pasta&price=80&image=cheese.jpg" class="item">
+      <img src="cheese.jpg" alt="Cheese Pasta">
+      <h3>Cheese Pasta</h3>
+      <p>Rs. 80</p>
+    </a>
+    <a href="item.html?name=Veg Burger&price=60&image=burger.jpg" class="item">
+      <img src="burger.jpg" alt="Veg Burger">
+      <h3>Veg Burger</h3>
+      <p>Rs. 60</p>
+    </a>
+    <a href="item.html?name=Barbeque Sandwich&price=90&image=barbe.jpg" class="item">
+      <img src="barbe.jpg" alt="Barbeque Sandwich">
+      <h3>Barbeque Sandwich</h3>
+      <p>Rs. 90</p>
+    </a>
+    <a href="item.html?name=Green Tea&price=40&image=green.jpg" class="item">
+      <img src="green.jpg" alt="Green Tea">
+      <h3>Green Tea</h3>
+      <p>Rs. 40</p>
+    </a>
+    <a href="item.html?name=Lemon Tea&price=40&image=lemon.jpg" class="item">
+      <img src="lemon.jpg" alt="Lemon Tea">
+      <h3>Lemon Tea</h3>
+      <p>Rs. 40</p>
+    </a>
+  </div>
 </body>
 </html>
