@@ -6,59 +6,105 @@
   <title>C-BAR Canteen Menu</title>
   <style>
     body {
+      background: linear-gradient(to right, #f5f7fa, #c3cfe2);
       font-family: Arial, sans-serif;
-      padding: 20px;
-      background-image: url('cbar.bg.jpg');
-      background-size: cover;
-      background-position: center;
-    }
-    h1, h2 {
       text-align: center;
-      color: #ffffff;
-      text-shadow: 1px 1px 4px #000;
     }
-    .menu-item {
+    h1 {
+      color: #333;
+      margin-top: 20px;
+    }
+    .menu {
       display: flex;
-      align-items: center;
-      background: rgba(255, 255, 255, 0.9);
-      margin: 10px auto;
-      padding: 10px;
-      border-radius: 10px;
-      max-width: 600px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 20px;
     }
-    .menu-item img {
-      width: 60px;
-      height: 60px;
+    .item {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      margin: 15px;
+      padding: 15px;
+      width: 200px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .item:hover {
+      transform: scale(1.05);
+    }
+    .item img {
+      width: 100%;
+      height: 120px;
       object-fit: cover;
       border-radius: 8px;
-      margin-right: 15px;
     }
-    .menu-text {
+    .item h3 {
+      margin: 10px 0 5px;
       font-size: 18px;
-      color: #333;
+    }
+    .item p {
+      margin: 0;
+      font-size: 16px;
+      color: #555;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
     }
   </style>
 </head>
 <body>
-  <h1>Smart Serve</h1>
-  <h2>C-BAR Canteen Menu</h2>
-
-  <div class="menu-item"><img src="poha.jpg"><div class="menu-text">Poha – ₹20</div></div>
-  <div class="menu-item"><img src="dosa.jpg"><div class="menu-text">Dosa – ₹30</div></div>
-  <div class="menu-item"><img src="medu.jpg"><div class="menu-text">Medu Wada – ₹50</div></div>
-  <div class="menu-item"><img src="besan.jpg"><div class="menu-text">Besan Chila – ₹40</div></div>
-  <div class="menu-item"><img src="salad.jpg"><div class="menu-text">Salad – ₹30</div></div>
-  <div class="menu-item"><img src="dhokla.jpg"><div class="menu-text">Dhokla – ₹50</div></div>
-  <div class="menu-item"><img src="sand.jpg"><div class="menu-text">Sandwich – ₹40</div></div>
-  <div class="menu-item"><img src="paratha.jpg"><div class="menu-text">Paratha – ₹50</div></div>
-  <div class="menu-item"><img src="ome.jpg"><div class="menu-text">Omelette – ₹40</div></div>
-  <div class="menu-item"><img src="bhurji.jpg"><div class="menu-text">Paneer Bhurji – ₹50</div></div>
-  <div class="menu-item"><img src="upma.jpg"><div class="menu-text">Upma – ₹30</div></div>
-  <div class="menu-item"><img src="fried.jpg"><div class="menu-text">Fried Rice – ₹50</div></div>
-  <div class="menu-item"><img src="vej.jpg"><div class="menu-text">Veg Thali – ₹60</div></div>
-  <div class="menu-item"><img src="chapati.jpg"><div class="menu-text">Bhaji Chapati – ₹50</div></div>
-  <div class="menu-item"><img src="biryani.jpg"><div class="menu-text">Veg Biryani – ₹80</div></div>
-
-</body>
-</html>
+  <h1>C-BAR Canteen Menu</h1>
+  <div class="menu">
+    <a href="item.html?name=Poha&price=20&image=poha.jpg" class="item">
+      <img src="poha.jpg" alt="Poha">
+      <h3>Poha</h3>
+      <p>Rs. 20</p>
+    </a>
+    <a href="item.html?name=Dosa&price=30&image=dosa.jpg" class="item">
+      <img src="dosa.jpg" alt="Dosa">
+      <h3>Dosa</h3>
+      <p>Rs. 30</p>
+    </a>
+    <a href="item.html?name=Medu Wada&price=50&image=medu.jpg" class="item">
+      <img src="medu.jpg" alt="Medu Wada">
+      <h3>Medu Wada</h3>
+      <p>Rs. 50</p>
+    </a>
+    <a href="item.html?name=Besan Chila&price=40&image=besan.jpg" class="item">
+      <img src="besan.jpg" alt="Besan Chila">
+      <h3>Besan Chila</h3>
+      <p>Rs. 40</p>
+    </a>
+    <a href="item.html?name=Salad&price=30&image=salad.jpg" class="item">
+      <img src="salad.jpg" alt="Salad">
+      <h3>Salad</h3>
+      <p>Rs. 30</p>
+    </a>
+    <a href="item.html?name=Dhokla&price=50&image=dhokla.jpg" class="item">
+      <img src="dhokla.jpg" alt="Dhokla">
+      <h3>Dhokla</h3>
+      <p>Rs. 50</p>
+    </a>
+    <a href="item.html?name=Sandwich&price=40&image=sand.jpg" class="item">
+      <img src="sand.jpg" alt="Sandwich">
+      <h3>Sandwich</h3>
+      <p>Rs. 40</p>
+    </a>
+    <a href="item.html?name=Paratha&price=50&image=paratha.jpg" class="item">
+      <img src="paratha.jpg" alt="Paratha">
+      <h3>Paratha</h3>
+      <p>Rs. 50</p>
+    </a>
+    <a href="item.html?name=Omelette&price=40&image=ome.jpg" class="item">
+      <img src="ome.jpg" alt="Omelette">
+      <h3>Omelette</h3>
+      <p>Rs. 40</p>
+    </a>
+    <a href="item.html?name=Paneer Bhurji&price=50&image=bhurji.jpg" class="item">
+      <img src="bhurji.jpg" alt="Paneer Bhurji">
+      <h3>Paneer Bhurji</h3>
+      <p>Rs. 50</p>
+    </a>
+    <a
