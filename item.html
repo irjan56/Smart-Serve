@@ -35,6 +35,7 @@
       max-width: 250px;
       height: auto;
       margin-bottom: 20px;
+      border-radius: 8px;
     }
 
     .price {
@@ -53,7 +54,6 @@
       margin: 20px 0;
     }
 
-    .form-container select,
     .form-container input {
       padding: 10px;
       font-size: 16px;
@@ -87,11 +87,7 @@
 
     <div class="form-container">
       <input type="number" id="quantity" value="1" min="1" onchange="updateTotalPrice()" />
-      <select id="time" onchange="updateTotalPrice()">
-        <option value="morning">Morning</option>
-        <option value="afternoon">Afternoon</option>
-        <option value="evening">Evening</option>
-      </select>
+      <input type="time" id="time" />
     </div>
 
     <div class="total-price">
@@ -102,30 +98,28 @@
   </div>
 
   <script>
-    // Get parameters from the URL
     const params = new URLSearchParams(window.location.search);
     const mealName = params.get("name");
     const mealPrice = parseInt(params.get("price"));
     const mealImage = params.get("image");
 
-    // Set content
     document.getElementById("meal-name").innerText = mealName;
     document.getElementById("meal-price").innerText = mealPrice;
     document.getElementById("meal-image").src = mealImage;
 
-    // Update total price
     function updateTotalPrice() {
-      const quantity = document.getElementById("quantity").value;
+      const quantity = parseInt(document.getElementById("quantity").value);
       const total = quantity * mealPrice;
       document.getElementById("total-price").innerText = total;
     }
 
-    // Initial calculation
-    updateTotalPrice();
-
     function proceedToPay() {
-      alert(Proceeding to pay for ${mealName});
+      const quantity = document.getElementById("quantity").value;
+      const time = document.getElementById("time").value;
+      alert(Proceeding to pay for ${mealName}.\nQuantity: ${quantity}\nTime: ${time}\nTotal: ₹${quantity * mealPrice});
     }
+
+    updateTotalPrice();
   </script>
 </body>
 </html>
