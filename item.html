@@ -68,7 +68,7 @@
 <body>
   <div class="container">
     <img id="item-image" src="" alt="Item" />
-    <h2 id="item-name">Item Name</h2>
+    <h2 id="item-name">Loading...</h2>
     <div class="info" id="item-price">Price: ₹0</div>
 
     <div class="form-group">
@@ -78,12 +78,7 @@
 
     <div class="form-group">
       <label for="time">Select Time:</label>
-      <select id="time">
-        <option>9:00 AM</option>
-        <option>12:00 PM</option>
-        <option>3:00 PM</option>
-        <option>6:00 PM</option>
-      </select>
+      <input type="time" id="time" />
     </div>
 
     <div class="total" id="total-price">Total: ₹0</div>
@@ -92,21 +87,23 @@
   </div>
 
   <script>
-    // Parse query parameters from URL
+    // Read and decode the parameters from URL
     const urlParams = new URLSearchParams(window.location.search);
-    const name = urlParams.get('name');
-    const price = parseInt(urlParams.get('price'));
-    const image = urlParams.get('image');
+    const name = decodeURIComponent(urlParams.get('name') || '');
+    const price = parseInt(urlParams.get('price') || 0);
+    const image = decodeURIComponent(urlParams.get('image') || '');
 
+    // Set data in the HTML
     document.getElementById('item-name').textContent = name;
     document.getElementById('item-price').textContent = Price: ₹${price};
     document.getElementById('item-image').src = image;
 
+    // Calculate total price based on quantity
     const quantityInput = document.getElementById('quantity');
     const totalPrice = document.getElementById('total-price');
 
     function updateTotal() {
-      const quantity = parseInt(quantityInput.value);
+      const quantity = parseInt(quantityInput.value) || 1;
       const total = quantity * price;
       totalPrice.textContent = Total: ₹${total};
     }
@@ -115,7 +112,13 @@
     updateTotal();
 
     function proceedToPay() {
-      alert(Order placed for ${quantityInput.value} ${name}(s) at ${document.getElementById('time').value}.);
+      const time = document.getElementById('time').value;
+      const qty = quantityInput.value;
+      if (!time) {
+        alert("Please select a time.");
+        return;
+      }
+      alert(Order placed for ${qty} ${name}(s) at ${time}.);
     }
   </script>
 </body>
