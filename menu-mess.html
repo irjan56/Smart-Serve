@@ -6,74 +6,96 @@
   <title>Sinhgad Mess Menu</title>
   <style>
     body {
+      background: linear-gradient(to right, #f5f7fa, #c3cfe2);
       font-family: Arial, sans-serif;
-      padding: 20px;
-      background-image: url('mess.bg.jpg');
-      background-size: cover;
-      background-position: center;
-      color: #fff;
-    }
-
-    h1, h2 {
       text-align: center;
-      text-shadow: 1px 1px 4px #000;
     }
-
-    .section {
-      margin-top: 30px;
+    h1 {
+      color: #333;
+      margin-top: 20px;
     }
-
-    .section h3 {
-      margin-bottom: 15px;
-      padding-bottom: 5px;
-      border-bottom: 2px solid #fff;
-      text-shadow: 1px 1px 2px #000;
+    h2 {
+      color: #444;
+      margin-top: 40px;
     }
-
-    .menu-item {
+    .menu {
       display: flex;
-      align-items: center;
-      background: rgba(255, 255, 255, 0.9);
-      margin: 10px auto;
-      padding: 10px;
-      border-radius: 10px;
-      max-width: 600px;
-      color: #000;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 20px;
     }
-
-    .menu-item img {
-      width: 60px;
-      height: 60px;
+    .item {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      margin: 15px;
+      padding: 15px;
+      width: 200px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .item:hover {
+      transform: scale(1.05);
+    }
+    .item img {
+      width: 100%;
+      height: 120px;
       object-fit: cover;
       border-radius: 8px;
-      margin-right: 15px;
     }
-
-    .menu-text {
+    .item h3 {
+      margin: 10px 0 5px;
       font-size: 18px;
+    }
+    .item p {
+      margin: 0;
+      font-size: 16px;
+      color: #555;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
     }
   </style>
 </head>
 <body>
-  <h1>Smart Serve</h1>
-  <h2>Sinhgad Mess</h2>
+  <h1>Sinhgad Mess Menu</h1>
 
-  <div class="section">
-    <h3>Breakfast</h3>
-    <div class="menu-item"><img src="sabu.jpg"><div class="menu-text">Sabudana Khichdi – ₹30</div></div>
-    <div class="menu-item"><img src="poha.jpg"><div class="menu-text">Poha – ₹20</div></div>
-    <div class="menu-item"><img src="tea.jpg"><div class="menu-text">Tea/Coffee – ₹20</div></div>
+  <h2>Breakfast</h2>
+  <div class="menu">
+    <a href="item.html?name=Sabudana Khichdi&price=30&image=sabu.jpg" class="item">
+      <img src="sabu.jpg" alt="Sabudana Khichdi">
+      <h3>Sabudana Khichdi</h3>
+      <p>Rs. 30</p>
+    </a>
+    <a href="item.html?name=Poha&price=20&image=poha.jpg" class="item">
+      <img src="poha.jpg" alt="Poha">
+      <h3>Poha</h3>
+      <p>Rs. 20</p>
+    </a>
+    <a href="item.html?name=Tea/Coffee&price=20&image=tea.jpg" class="item">
+      <img src="tea.jpg" alt="Tea/Coffee">
+      <h3>Tea / Coffee</h3>
+      <p>Rs. 20</p>
+    </a>
   </div>
 
-  <div class="section">
-    <h3>Lunch</h3>
-    <div class="menu-item"><img src="fulka.jpg"><div class="menu-text">Fulka, Punjabi Dal, Plain Rice, Sambar, Chapati, Pickles – ₹80</div></div>
+  <h2>Lunch</h2>
+  <div class="menu">
+    <a href="item.html?name=Fulka+Dal+Rice+Sambar+Chapati+Pickles&price=70&image=fulka.jpg" class="item">
+      <img src="fulka.jpg" alt="Lunch Plate">
+      <h3>Fulka + Dal + Rice + Sambar + Chapati + Pickles</h3>
+      <p>Rs. 70</p>
+    </a>
   </div>
 
-  <div class="section">
-    <h3>Dinner</h3>
-    <div class="menu-item"><img src="dinner.jpg"><div class="menu-text">Chapati, Mutter Paneer, Dry Gobi, Plain Rice, Sambar, Banana, Curd, Buttermilk – ₹90</div></div>
+  <h2>Dinner</h2>
+  <div class="menu">
+    <a href="item.html?name=Chapati+Paneer+Gobi+Rice+Sambar+Banana+Curd+Buttermilk&price=90&image=fulka.jpg" class="item">
+      <img src="fulka.jpg" alt="Dinner Plate">
+      <h3>Chapati + Mutter Paneer + Gobi + Rice + Sambar + Banana + Curd + Buttermilk</h3>
+      <p>Rs. 90</p>
+    </a>
   </div>
 </body>
 </html>
