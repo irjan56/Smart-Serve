@@ -1,120 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Sinhgad Mess Menu</title>
   <style>
     body {
-      background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+      background-image: url('your-background.jpg'); /* Use your original background */
+      background-size: cover;
+      background-position: center;
       font-family: Arial, sans-serif;
-      text-align: center;
       margin: 0;
-      padding: 0;
+      padding: 20px;
+      color: #000;
     }
     h1 {
+      text-align: center;
       color: #333;
-      margin-top: 20px;
     }
-    h2 {
-      color: #444;
+    .menu-wrapper {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      gap: 40px;
       margin-top: 40px;
     }
-    .menu {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin: 20px;
+    .section {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      flex: 1;
+      max-width: 30%;
     }
-    .menu-column {
+    .section h2 {
+      text-align: center;
+      color: #333;
+    }
+    .breakfast-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .tea-row {
+      grid-column: span 2;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 15px;
+      justify-content: center;
+      margin-top: 10px;
     }
     .item {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      margin: 15px;
-      padding: 15px;
-      width: 200px;
       text-align: center;
-      transition: transform 0.2s;
-    }
-    .item:hover {
-      transform: scale(1.05);
+      margin-bottom: 20px;
     }
     .item img {
       width: 100%;
-      height: 120px;
-      object-fit: cover;
+      max-width: 160px;
       border-radius: 8px;
     }
     .item h3 {
-      margin: 10px 0 5px;
-      font-size: 18px;
+      margin: 8px 0 5px;
     }
     .item p {
       margin: 0;
-      font-size: 16px;
-      color: #555;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-    .menu-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 20px;
     }
   </style>
 </head>
 <body>
+
   <h1>Sinhgad Mess Menu</h1>
 
-  <div class="menu-container">
-    <!-- Breakfast -->
-    <div class="menu-column">
+  <div class="menu-wrapper">
+    <!-- Breakfast Section -->
+    <div class="section">
       <h2>Breakfast</h2>
-      <a href="item.html?name=Sabudana Khichdi&price=30&image=sabu.jpg" class="item">
-        <img src="sabu.jpg" alt="Sabudana Khichdi">
-        <h3>Sabudana Khichdi</h3>
-        <p>Rs. 30</p>
-      </a>
-      <a href="item.html?name=Poha&price=20&image=poha.jpg" class="item">
-        <img src="poha.jpg" alt="Poha">
-        <h3>Poha</h3>
-        <p>Rs. 20</p>
-      </a>
-      <a href="item.html?name=Tea/Coffee&price=20&image=tea.jpg" class="item">
-        <img src="tea.jpg" alt="Tea/Coffee">
-        <h3>Tea / Coffee</h3>
-        <p>Rs. 20</p>
-      </a>
+      <div class="breakfast-grid">
+        <div class="item">
+          <img src="sabu.jpg" alt="Sabudana Khichdi">
+          <h3>Sabudana Khichdi</h3>
+          <p>₹30</p>
+        </div>
+        <div class="item">
+          <img src="poha.jpg" alt="Poha">
+          <h3>Poha</h3>
+          <p>₹20</p>
+        </div>
+        <div class="tea-row">
+          <div class="item">
+            <img src="tea.jpg" alt="Tea/Coffee">
+            <h3>Tea/Coffee</h3>
+            <p>₹20</p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Lunch -->
-    <div class="menu-column">
+    <!-- Lunch Section -->
+    <div class="section">
       <h2>Lunch</h2>
-      <a href="item.html?name=Fulka+Dal+Rice+Sambar+Chapati+Pickles&price=70&image=fulka.jpg" class="item">
-        <img src="fulka.jpg" alt="Lunch Plate">
-        <h3>Fulka + Dal + Rice + Sambar + Chapati + Pickles</h3>
-        <p>Rs. 70</p>
-      </a>
+      <div class="item">
+        <img src="phulka.jpg" alt="Lunch">
+        <h3>Fulka, Punjabi Dal, Rice, Sambar, Chapati, Pickles</h3>
+        <p>Included</p>
+      </div>
     </div>
 
-    <!-- Dinner -->
-    <div class="menu-column">
+    <!-- Dinner Section -->
+    <div class="section">
       <h2>Dinner</h2>
-      <a href="item.html?name=Chapati+Paneer+Gobi+Rice+Sambar+Banana+Curd+Buttermilk&price=90&image=dinner.jpg" class="item">
-        <img src="dinner.jpg" alt="Dinner Plate">
-        <h3>Chapati + Mutter Paneer + Gobi + Rice + Sambar + Banana + Curd + Buttermilk</h3>
-        <p>Rs. 90</p>
-      </a>
+      <div class="item">
+        <img src="dinner.jpg" alt="Dinner">
+        <h3>Chapati, Mutter Paneer, Dry Gobi, Rice, Sambar, Banana, Curd, Buttermilk</h3>
+        <p>Included</p>
+      </div>
     </div>
   </div>
+
 </body>
 </html>
+    
+  
+    
+       
+    
