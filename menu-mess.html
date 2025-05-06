@@ -9,6 +9,8 @@
       background: linear-gradient(to right, #f5f7fa, #c3cfe2);
       font-family: Arial, sans-serif;
       text-align: center;
+      margin: 0;
+      padding: 0;
     }
     h1 {
       color: #333;
@@ -23,6 +25,12 @@
       flex-wrap: wrap;
       justify-content: center;
       margin: 20px;
+    }
+    .menu-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 15px;
     }
     .item {
       background: white;
@@ -56,46 +64,57 @@
       text-decoration: none;
       color: inherit;
     }
+    .menu-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
   <h1>Sinhgad Mess Menu</h1>
 
-  <h2>Breakfast</h2>
-  <div class="menu">
-    <a href="item.html?name=Sabudana Khichdi&price=30&image=sabu.jpg" class="item">
-      <img src="sabu.jpg" alt="Sabudana Khichdi">
-      <h3>Sabudana Khichdi</h3>
-      <p>Rs. 30</p>
-    </a>
-    <a href="item.html?name=Poha&price=20&image=poha.jpg" class="item">
-      <img src="poha.jpg" alt="Poha">
-      <h3>Poha</h3>
-      <p>Rs. 20</p>
-    </a>
-    <a href="item.html?name=Tea/Coffee&price=20&image=tea.jpg" class="item">
-      <img src="tea.jpg" alt="Tea/Coffee">
-      <h3>Tea / Coffee</h3>
-      <p>Rs. 20</p>
-    </a>
-  </div>
+  <div class="menu-container">
+    <!-- Breakfast -->
+    <div class="menu-column">
+      <h2>Breakfast</h2>
+      <a href="item.html?name=Sabudana Khichdi&price=30&image=sabu.jpg" class="item">
+        <img src="sabu.jpg" alt="Sabudana Khichdi">
+        <h3>Sabudana Khichdi</h3>
+        <p>Rs. 30</p>
+      </a>
+      <a href="item.html?name=Poha&price=20&image=poha.jpg" class="item">
+        <img src="poha.jpg" alt="Poha">
+        <h3>Poha</h3>
+        <p>Rs. 20</p>
+      </a>
+      <a href="item.html?name=Tea/Coffee&price=20&image=tea.jpg" class="item">
+        <img src="tea.jpg" alt="Tea/Coffee">
+        <h3>Tea / Coffee</h3>
+        <p>Rs. 20</p>
+      </a>
+    </div>
 
-  <h2>Lunch</h2>
-  <div class="menu">
-    <a href="item.html?name=Fulka+Dal+Rice+Sambar+Chapati+Pickles&price=70&image=fulka.jpg" class="item">
-      <img src="fulka.jpg" alt="Lunch Plate">
-      <h3>Fulka + Dal + Rice + Sambar + Chapati + Pickles</h3>
-      <p>Rs. 70</p>
-    </a>
-  </div>
+    <!-- Lunch -->
+    <div class="menu-column">
+      <h2>Lunch</h2>
+      <a href="item.html?name=Fulka+Dal+Rice+Sambar+Chapati+Pickles&price=70&image=fulka.jpg" class="item">
+        <img src="fulka.jpg" alt="Lunch Plate">
+        <h3>Fulka + Dal + Rice + Sambar + Chapati + Pickles</h3>
+        <p>Rs. 70</p>
+      </a>
+    </div>
 
-  <h2>Dinner</h2>
-  <div class="menu">
-    <a href="item.html?name=Chapati+Paneer+Gobi+Rice+Sambar+Banana+Curd+Buttermilk&price=90&image=fulka.jpg" class="item">
-      <img src="fulka.jpg" alt="Dinner Plate">
-      <h3>Chapati + Mutter Paneer + Gobi + Rice + Sambar + Banana + Curd + Buttermilk</h3>
-      <p>Rs. 90</p>
-    </a>
+    <!-- Dinner -->
+    <div class="menu-column">
+      <h2>Dinner</h2>
+      <a href="item.html?name=Chapati+Paneer+Gobi+Rice+Sambar+Banana+Curd+Buttermilk&price=90&image=dinner.jpg" class="item">
+        <img src="dinner.jpg" alt="Dinner Plate">
+        <h3>Chapati + Mutter Paneer + Gobi + Rice + Sambar + Banana + Curd + Buttermilk</h3>
+        <p>Rs. 90</p>
+      </a>
+    </div>
   </div>
 </body>
 </html>
