@@ -2,160 +2,168 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Item Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Engineering Canteen Menu</title>
   <style>
     body {
-      background-image: url('item.bg.jpg');
+      background: url('engg.bg.jpg') no-repeat center center fixed;
       background-size: cover;
       font-family: Arial, sans-serif;
-      text-align: center;
-      color: white;
-      height: 100vh;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 20px;
-    }
-
-    .menu-header {
-      border: 2px solid black;
-      background-color: white;
-      color: red;
-      border-radius: 10px;
       padding: 20px;
-      margin-bottom: 20px;
-      width: 90%;
-      max-width: 600px;
+      position: relative;
+      z-index: 1;
     }
 
-    .return-button {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      font-size: 16px;
-      border: 1px solid black;
-      border-radius: 5px;
-      text-decoration: none;
-      color: black;
-      background-color: transparent;
-      transition: background-color 0.3s ease;
-    }
-
-    .return-button:hover {
-      background-color: #f0f0f0;
-    }
-
-    .container {
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 30px;
-      border-radius: 10px;
-      width: 80%;
-      max-width: 600px;
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.6); /* white overlay to make background faint */
+      z-index: 0;
     }
 
     h1 {
-      color: violet;
-    }
-
-    img {
-      width: 100%;
-      max-width: 250px;
-      height: auto;
-      margin-bottom: 20px;
-    }
-
-    .price {
-      font-size: 24px;
-    }
-
-    .total-price {
-      font-size: 28px;
+      text-align: center;
       color: red;
-      margin-top: 20px;
+      position: relative;
+      z-index: 1;
     }
 
-    .form-container {
+    .menu-container {
       display: flex;
-      justify-content: space-between;
-      margin: 20px 0;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+      position: relative;
+      z-index: 1;
     }
 
-    .form-container select,
-    .form-container input {
+    .menu-item {
+      background: white;
+      border-radius: 10px;
+      width: 180px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      text-decoration: none;
+      color: black;
+      transition: transform 0.3s;
+    }
+
+    .menu-item img {
+      width: 100%;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      height: 120px;
+      object-fit: cover;
+    }
+
+    .menu-item .info {
       padding: 10px;
-      font-size: 16px;
-      width: 45%;
-      border-radius: 5px;
     }
 
-    .proceed-button {
-      background-color: violet;
-      color: white;
-      font-size: 18px;
-      padding: 15px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 20px;
-    }
-
-    .proceed-button:hover {
-      background-color: purple;
+    .menu-item:hover {
+      transform: scale(1.03);
     }
   </style>
 </head>
 <body>
-  <div class="menu-header">
-    <h2>Engineering Canteen Menu</h2>
-    <a href="engineeringmenu.html" class="return-button">Return</a>
+  <h1>Engineering Canteen Menu</h1>
+  <div class="menu-container">
+    <a class="menu-item" href="item.html?name=Pav%20Bhaji&price=60&image=pav.jpg">
+      <img src="pav.jpg" alt="Pav Bhaji"/>
+      <div class="info">
+        <h3>Pav Bhaji</h3>
+        <p>₹60</p>
+      </div>
+    </a>
+    <a class="menu-item" href="item.html?name=Idli%20Sambar&price=30&image=idli.jpg">
+      <img src="idli.jpg" alt="Idli Sambar"/>
+      <div class="info">
+        <h3>Idli Sambar</h3>
+        <p>₹30</p>
+      </div>
+    </a>
+    <a class="menu-item" href="item.html?name=Poha&price=20&image=poha.jpg">
+      <img src="poha.jpg" alt="Poha"/>
+      <div class="info">
+        <h3>Poha</h3>
+        <p>₹20</p>
+      </div>
+    </a>
+    <a class="menu-item" href="item.html?name=Dosa&price=30&image=dosa.jpg">
+      <img src="dosa.jpg" alt="Dosa"/>
+      <div class="info">
+        <h3>Dosa</h3>
+        <p>₹30</p>
+      </div>
+    </a>
+    <a class="menu-item" href="item.html?name=Masala%20Dosa&price=40&image=masala.jpg">
+      <img src="masala.jpg" alt="Masala Dosa"/>
+      <div class="info">
+        <h3>Masala Dosa</h3>
+        <p>₹40</p>
+      </div>
+    </a>
+    <a class="menu-item" href="item.html?name=Paratha&price=50&image=paratha.jpg">
+      <img src="paratha.jpg" alt="Paratha"/>
+      <div class="info">
+        <h3>Paratha</h3>
+        <p>₹50</p>
+      </div>
+    </a>
+    <a class="menu-item" href="item.html?name=Samosa&price=20&image=samosa.jpg">
+      <img src="samosa.jpg" alt="Samosa"/>
+      <div class="info">
+        <h3>Samosa</h3>
+        <p>₹20</p>
+      </div>
+    </a>
+    <a class="menu-item" href="item.html?name=Vadapav&price=20&image=vada.jpg">
+      <img src="vada.jpg" alt="Vadapav"/>
+      <div class="info">
+        <h3>Vadapav</h3>
+        <p>₹20</p>
+      </div>
+    </a>
+    <a class="menu-item" href="item.html?name=Veg%20Biryani&price=80&image=biryani.jpg">
+      <img src="biryani.jpg" alt="Veg Biryani"/>
+      <div class="info">
+        <h3>Veg Biryani</h3>
+        <p>₹80</p>
+      </div>
+    </a>
+    <a class="menu-item" href="item.html?name=Rajma%20Masala&price=60&image=rajma.jpg">
+      <img src="rajma.jpg" alt="Rajma Masala"/>
+      <div class="info">
+        <h3>Rajma Masala</h3>
+        <p>₹60</p>
+      </div>
+    </a>
+    <a class="menu-item" href="item.html?name=Veg%20Thali&price=50&image=vej.jpg">
+      <img src="vej.jpg" alt="Veg Thali"/>
+      <div class="info">
+        <h3>Veg Thali</h3>
+        <p>₹50</p>
+      </div>
+    </a>
+    <a class="menu-item" href="item.html?name=Puri%20Bhaji&price=60&image=puri.jpg">
+      <img src="puri.jpg" alt="Puri Bhaji"/>
+      <div class="info">
+        <h3>Puri Bhaji</h3>
+        <p>₹60</p>
+      </div>
+    </a>
+    <a class="menu-item" href="item.html?name=Chapati%20Bhaji&price=40&image=chapati.jpg">
+      <img src="chapati.jpg" alt="Chapati Bhaji"/>
+      <div class="info">
+        <h3>Chapati Bhaji</h3>
+        <p>₹40</p>
+      </div>
+    </a>
   </div>
-
-  <div class="container">
-    <img id="meal-image" src="" alt="Meal Image">
-    <h1 id="meal-name">Loading...</h1>
-    <div class="price">
-      Price: ₹<span id="meal-price">0</span>
-    </div>
-
-    <div class="form-container">
-      <input type="number" id="quantity" value="1" min="1" onchange="updateTotalPrice()" />
-      <select id="time" onchange="updateTotalPrice()">
-        <option value="morning">Morning</option>
-        <option value="afternoon">Afternoon</option>
-        <option value="evening">Evening</option>
-      </select>
-    </div>
-
-    <div class="total-price">
-      Total: ₹<span id="total-price">0</span>
-    </div>
-
-    <button class="proceed-button" onclick="proceedToPay()">Proceed to Pay</button>
-  </div>
-
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const mealName = params.get("name");
-    const mealPrice = parseInt(params.get("price"));
-    const mealImage = params.get("image");
-
-    document.getElementById("meal-name").innerText = mealName;
-    document.getElementById("meal-price").innerText = mealPrice;
-    document.getElementById("meal-image").src = mealImage;
-
-    function updateTotalPrice() {
-      const quantity = document.getElementById("quantity").value;
-      const total = quantity * mealPrice;
-      document.getElementById("total-price").innerText = total;
-    }
-
-    updateTotalPrice();
-
-    function proceedToPay() {
-      alert(Proceeding to pay for ${mealName});
-    }
-  </script>
 </body>
 </html>
