@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Item Details</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    .item-container { max-width: 600px; margin: auto; border: 1px solid #ccc; padding: 20px; }
+    img { width: 100%; max-height: 300px; object-fit: cover; }
+    label, select, input { display: block; margin: 10px 0; }
+    .total { font-weight: bold; margin-top: 10px; }
+    button { margin-top: 20px; padding: 10px 20px; background-color: green; color: white; border: none; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+<div class="item-container">
+  <img id="itemImage" src="" alt="Meal Image">
+  <h2 id="itemName"></h2>
+  <p>Price: ₹<span id="itemPrice"></span></p>
+
+  <label for="quantity">Quantity:</label>
+  <input type="number" id="quantity" value="1" min="1">
+
+  <label for="time">Select Time:</label>
+  <select id="time">
+    <option value="8:00 AM">8:00 AM</option>
+    <option value="12:00 PM">12:00 PM</option>
+    <option value="6:00 PM">6:00 PM</option>
+  </select>
+
+  <div class="total">Total Price: ₹<span id="totalPrice"></span></div>
+
+  <button onclick="proceedToPay()">Proceed to Pay</button>
+</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const name = params.get("name");
+  const price = parseFloat(params.get("price"));
+  const image = params.get("image");
+
+  document.getElementById("itemName").textContent = name;
+  document.getElementById("itemPrice").textContent = price;
+  document.getElementById("itemImage").src = "images/" + image;
+
+  function updateTotal() {
+    const quantity = parseInt(document.getElementById("quantity").value);
+    document.getElementById("totalPrice").textContent = price * quantity;
+  }
+
+  document.getElementById("quantity").addEventListener("input", updateTotal);
+  updateTotal();
+
+  function proceedToPay() {
+    alert("Proceeding to pay for " + name + " at ₹" + document.getElementById("totalPrice").textContent);
+  }
+</script>
+
+</body>
+</html>
