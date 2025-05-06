@@ -1,134 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Item Details</title>
-    <style>
-        body {
-            background-image: url('background.jpg'); /* Your background image */
-            background-size: cover;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            color: white;
-            height: 100vh;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Item Details</title>
+  <style>
+    body {
+      background-image: url('item.bg.jpg');
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      color: white;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        .container {
-            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-            padding: 30px;
-            border-radius: 10px;
-            width: 80%;
-            max-width: 600px;
-        }
+    .container {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 600px;
+    }
 
-        h1 {
-            color: violet;
-        }
+    h1 {
+      color: violet;
+    }
 
-        img {
-            width: 100%;
-            max-width: 250px;
-            height: auto;
-            margin-bottom: 20px;
-        }
+    img {
+      width: 100%;
+      max-width: 250px;
+      height: auto;
+      margin-bottom: 20px;
+    }
 
-        .price {
-            font-size: 24px;
-            color: white;
-        }
+    .price {
+      font-size: 24px;
+    }
 
-        .total-price {
-            font-size: 28px;
-            color: red;
-            margin-top: 20px;
-        }
+    .total-price {
+      font-size: 28px;
+      color: red;
+      margin-top: 20px;
+    }
 
-        .form-container {
-            display: flex;
-            justify-content: space-between;
-            margin: 20px 0;
-        }
+    .form-container {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+    }
 
-        .form-container select,
-        .form-container input {
-            padding: 10px;
-            font-size: 16px;
-            width: 45%;
-            margin: 10px 0;
-            border-radius: 5px;
-        }
+    .form-container select,
+    .form-container input {
+      padding: 10px;
+      font-size: 16px;
+      width: 45%;
+      border-radius: 5px;
+    }
 
-        .form-container input[type="number"] {
-            width: 45%;
-        }
+    .proceed-button {
+      background-color: violet;
+      color: white;
+      font-size: 18px;
+      padding: 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
 
-        .proceed-button {
-            background-color: violet;
-            color: white;
-            font-size: 18px;
-            padding: 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-
-        .proceed-button:hover {
-            background-color: purple;
-        }
-    </style>
+    .proceed-button:hover {
+      background-color: purple;
+    }
+  </style>
 </head>
 <body>
-
-<div class="container">
-    <img src="pav.jpg" alt="Meal Image" id="meal-image">
-    <h1 id="meal-name">Pav Bhaji</h1>
+  <div class="container">
+    <img id="meal-image" src="" alt="Meal Image">
+    <h1 id="meal-name">Loading...</h1>
     <div class="price">
-        Price: ₹<span id="meal-price">60</span>
+      Price: ₹<span id="meal-price">0</span>
     </div>
 
     <div class="form-container">
-        <input type="number" id="quantity" value="1" min="1" onchange="updateTotalPrice()">
-        <select id="time" onchange="updateTotalPrice()">
-            <option value="morning">Morning</option>
-            <option value="afternoon">Afternoon</option>
-            <option value="evening">Evening</option>
-        </select>
+      <input type="number" id="quantity" value="1" min="1" onchange="updateTotalPrice()" />
+      <select id="time" onchange="updateTotalPrice()">
+        <option value="morning">Morning</option>
+        <option value="afternoon">Afternoon</option>
+        <option value="evening">Evening</option>
+      </select>
     </div>
 
     <div class="total-price">
-        Total: ₹<span id="total-price">60</span>
+      Total: ₹<span id="total-price">0</span>
     </div>
 
     <button class="proceed-button" onclick="proceedToPay()">Proceed to Pay</button>
-</div>
+  </div>
 
-<script>
-    // Assuming the meal info (name, price, and image) is passed dynamically
-    var mealName = "Pav Bhaji"; // Change dynamically as per clicked item
-    var mealPrice = 60; // Change dynamically as per clicked item
-    var mealImage = "pav.jpg"; // Change dynamically as per clicked item
+  <script>
+    // Get parameters from the URL
+    const params = new URLSearchParams(window.location.search);
+    const mealName = params.get("name");
+    const mealPrice = parseInt(params.get("price"));
+    const mealImage = params.get("image");
 
+    // Set content
     document.getElementById("meal-name").innerText = mealName;
     document.getElementById("meal-price").innerText = mealPrice;
     document.getElementById("meal-image").src = mealImage;
 
+    // Update total price
     function updateTotalPrice() {
-        var quantity = document.getElementById("quantity").value;
-        var totalPrice = quantity * mealPrice;
-        document.getElementById("total-price").innerText = totalPrice;
+      const quantity = document.getElementById("quantity").value;
+      const total = quantity * mealPrice;
+      document.getElementById("total-price").innerText = total;
     }
+
+    // Initial calculation
+    updateTotalPrice();
 
     function proceedToPay() {
-        alert("Proceeding to Pay!");
-        // Redirect to the payment page or any action to process the payment
+      alert(Proceeding to pay for ${mealName});
     }
-</script>
-
+  </script>
 </body>
 </html>
