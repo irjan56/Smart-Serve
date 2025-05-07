@@ -7,7 +7,8 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+      background: url('back.jpg') no-repeat center center fixed;
+      background-size: cover;
       text-align: center;
       padding: 20px;
     }
@@ -30,6 +31,7 @@
 
     h2 {
       margin-top: 15px;
+      color: violet;
     }
 
     .input-group {
@@ -53,7 +55,7 @@
     #total {
       font-size: 18px;
       margin: 15px 0;
-      color: #333;
+      color: red;
     }
 
     button {
@@ -86,18 +88,6 @@
       <label for="time">Select Time:</label>
       <select id="time">
         <option value="" disabled selected>Select time</option>
-        <!-- Generate time options -->
-        <script>
-          const select = document.createElement('select');
-          for (let h = 1; h <= 12; h++) {
-            ['AM', 'PM'].forEach(ampm => {
-              let option = document.createElement('option');
-              option.value = ${h}:00 ${ampm};
-              option.textContent = ${h}:00 ${ampm};
-              document.currentScript.parentNode.appendChild(option);
-            });
-          }
-        </script>
       </select>
     </div>
 
@@ -109,14 +99,28 @@
   </div>
 
   <script>
+    // Price and total calculation
     const quantityInput = document.getElementById('quantity');
     const totalDisplay = document.getElementById('total');
     const price = 60;
 
-    quantityInput.addEventListener('input', () => {
+    function updateTotal() {
       const qty = parseInt(quantityInput.value) || 1;
       totalDisplay.textContent = Total: Rs. ${qty * price};
-    });
+    }
+
+    quantityInput.addEventListener('input', updateTotal);
+
+    // Populate time options
+    const timeSelect = document.getElementById('time');
+    for (let h = 1; h <= 12; h++) {
+      ['AM', 'PM'].forEach(ampm => {
+        const option = document.createElement('option');
+        option.value = ${h}:00 ${ampm};
+        option.textContent = ${h}:00 ${ampm};
+        timeSelect.appendChild(option);
+      });
+    }
   </script>
 </body>
 </html>
