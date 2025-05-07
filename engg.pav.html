@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pav Bhaji - Engineering Canteen</title>
+  <title>Pav Bhaji - Order</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -30,32 +30,38 @@
     }
 
     h2 {
+      color: darkviolet;
       margin-top: 15px;
-      color: violet;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 10px 0;
     }
 
     .input-group {
       margin: 15px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      text-align: left;
     }
 
     label {
-      margin-right: 10px;
       font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
     }
 
     input[type="number"], select {
-      padding: 5px;
+      width: 100%;
+      padding: 8px;
       font-size: 16px;
-      width: 45%;
+      border-radius: 5px;
+      border: 1px solid #ccc;
     }
 
     #total {
       font-size: 18px;
-      margin: 15px 0;
       color: red;
+      margin: 20px 0;
     }
 
     button {
@@ -99,27 +105,25 @@
   </div>
 
   <script>
+    const price = 60;
     const quantityInput = document.getElementById('quantity');
     const totalDisplay = document.getElementById('total');
-    const price = 60;
+    const timeSelect = document.getElementById('time');
 
     function updateTotal() {
       const qty = parseInt(quantityInput.value) || 1;
       totalDisplay.textContent = Total: Rs. ${qty * price};
     }
 
-    // Listen to both input and change events
+    // Update total when quantity changes
     quantityInput.addEventListener('input', updateTotal);
-    quantityInput.addEventListener('change', updateTotal);
 
-    // Populate time dropdown with hours, minutes, and AM/PM
-    const timeSelect = document.getElementById('time');
-    const minutesArray = ['00', '15', '30', '45'];
-
+    // Populate time dropdown with HH:MM AM/PM
+    const minutes = ['00', '15', '30', '45'];
     for (let h = 1; h <= 12; h++) {
-      for (let min of minutesArray) {
+      for (let m of minutes) {
         ['AM', 'PM'].forEach(ampm => {
-          const timeStr = ${h}:${min} ${ampm};
+          const timeStr = ${h}:${m} ${ampm};
           const option = document.createElement('option');
           option.value = timeStr;
           option.textContent = timeStr;
@@ -128,7 +132,7 @@
       }
     }
 
-    // Initial total setup
+    // Initialize total
     updateTotal();
   </script>
 </body>
