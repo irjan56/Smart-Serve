@@ -17,7 +17,7 @@
     }
 
     .message-box {
-      background: rgba(255, 255, 255, 0); /* transparent so square in image shows */
+      background: rgba(255, 255, 255, 0); /* transparent */
       text-align: center;
       max-width: 600px;
       padding: 30px;
@@ -36,6 +36,14 @@
   <div class="message-box">
     <p>Your meal is ready! Please collect it from the counter by showing your token.</p>
   </div>
+
+  <script>
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        window.location.href = 'feedback.html';
+      }
+    });
+  </script>
 
 </body>
 </html>
