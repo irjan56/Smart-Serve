@@ -2,166 +2,136 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SmartServe Token</title>
+  <title>Meal Token</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
       background: url('token.bg.jpg') no-repeat center center fixed;
       background-size: cover;
+      font-family: Arial, sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      margin: 0;
     }
 
     .token-box {
-      background: #fff;
-      border: 3px solid #333;
-      border-radius: 20px;
+      background-color: #fff;
       padding: 30px;
-      width: 460px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+      border-radius: 20px;
+      width: 450px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
       position: relative;
       text-align: center;
     }
 
-    .logo-img {
-      width: 100px;
+    .logo {
+      width: 120px;
       margin-bottom: 10px;
     }
 
-    .token-number {
-      font-size: 26px;
-      font-weight: bold;
-      color: #000;
-      margin-bottom: 10px;
+    h2 {
+      margin: 10px 0;
+      font-size: 22px;
     }
 
-    .info {
+    .details, .items, .total, .payment {
+      text-align: left;
+      margin: 15px 0;
       font-size: 16px;
-      margin-bottom: 6px;
     }
 
-    table {
+    .items table {
       width: 100%;
       border-collapse: collapse;
-      margin: 15px 0;
     }
 
-    table th, table td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: center;
+    .items th, .items td {
+      border: 1px solid #ccc;
+      padding: 6px 10px;
+      text-align: left;
     }
 
-    table th {
-      background-color: #f2f2f2;
-      font-weight: bold;
-    }
-
-    .total {
-      text-align: right;
-      font-size: 18px;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    .paid {
+    .payment-status {
       color: green;
       font-weight: bold;
-      font-size: 16px;
-      margin: 20px 0 10px;
+      font-size: 18px;
     }
 
     .stamp {
       width: 100px;
-      height: 100px;
-      border: 2px solid #d32f2f;
-      color: #d32f2f;
-      font-weight: bold;
-      font-size: 14px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      opacity: 0.6;
+      transform: rotate(-15deg);
       position: absolute;
-      bottom: 100px;
-      right: 20px;
-      background-color: #fff;
+      bottom: 25px;
+      right: 25px;
+      z-index: 2;
     }
 
-    .notify-btn {
+    .button-container {
       margin-top: 20px;
-      padding: 12px 20px;
-      background-color: #d32f2f;
+    }
+
+    .next-btn {
+      background-color: #000;
       color: #fff;
+      padding: 10px 20px;
       border: none;
-      border-radius: 8px;
       font-size: 16px;
+      border-radius: 8px;
       cursor: pointer;
       text-decoration: none;
-      display: inline-block;
     }
 
-    .notify-btn:hover {
-      background-color: #a62121;
+    .next-btn:hover {
+      background-color: #333;
     }
   </style>
 </head>
 <body>
 
-<div class="token-box">
-  <img src="logo.jpg" alt="SmartServe Logo" class="logo-img">
+  <div class="token-box">
+    <img src="logo.jpg" alt="Smart Serve Logo" class="logo">
+    
+    <h2>Token No: 107</h2>
+    <h2>Name: Student Name</h2>
+    <h2>Time: 11:45 AM | Date: 07-05-2025</h2>
 
-  <div class="token-number">Token #42</div>
-  <div class="info"><strong>Student:</strong> [Name Here]</div>
-  <div class="info"><strong>Time:</strong> 11:35 AM</div>
-  <div class="info"><strong>Date:</strong> 7 May 2025</div>
+    <div class="items">
+      <table>
+        <tr>
+          <th>Item</th>
+          <th>Qty</th>
+          <th>Price</th>
+        </tr>
+        <tr>
+          <td>Pav Bhaji</td>
+          <td>1</td>
+          <td>₹60</td>
+        </tr>
+        <tr>
+          <td>Masala Dosa</td>
+          <td>1</td>
+          <td>₹40</td>
+        </tr>
+        <tr>
+          <td>Poha</td>
+          <td>1</td>
+          <td>₹20</td>
+        </tr>
+      </table>
+    </div>
 
-  <table id="order-table">
-    <tr>
-      <th>Qty</th>
-      <th>Item</th>
-      <th>Price</th>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>Pav Bhaji</td>
-      <td>60</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Samosa</td>
-      <td>20</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>Poha</td>
-      <td>20</td>
-    </tr>
-  </table>
+    <div class="total"><strong>Total Price: ₹120</strong></div>
+    <div class="payment payment-status">Payment: Done</div>
 
-  <div class="total" id="total-price">Total: ₹0</div>
-  <div class="paid">Payment: Done</div>
+    <img src="stamp.png" alt="Smart Serve Stamp" class="stamp">
 
-  <div class="stamp">SmartServe</div>
-
-  <a href="notification.html" class="notify-btn">Go to Notification</a>
-</div>
-
-<script>
-  const rows = document.querySelectorAll("#order-table tr");
-  let total = 0;
-
-  for (let i = 1; i < rows.length; i++) {
-    const cells = rows[i].querySelectorAll("td");
-    const qty = parseInt(cells[0].innerText);
-    const price = parseInt(cells[2].innerText);
-    total += qty * price;
-  }
-
-  document.getElementById("total-price").innerText = "Total: ₹" + total;
-</script>
+    <div class="button-container">
+      <a href="notification.html" class="next-btn">Go to Notification</a>
+    </div>
+  </div>
 
 </body>
 </html>
