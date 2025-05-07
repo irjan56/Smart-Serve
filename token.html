@@ -1,1 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SmartServe Token</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f1f1f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
+    .token-box {
+      background: #fff;
+      border: 2px solid #333;
+      border-radius: 15px;
+      padding: 25px 30px;
+      width: 400px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    .token-box h2 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .token-number {
+      font-size: 28px;
+      font-weight: bold;
+      color: #d32f2f;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .info {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .items-list {
+      background: #f9f9f9;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .items-list p {
+      margin: 4px 0;
+    }
+
+    .total {
+      font-weight: bold;
+      font-size: 18px;
+      text-align: right;
+      margin-bottom: 10px;
+    }
+
+    .paid {
+      color: green;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .stamp {
+      font-family: 'Georgia', serif;
+      font-size: 20px;
+      color: #d32f2f;
+      border: 2px dashed #d32f2f;
+      display: inline-block;
+      padding: 6px 12px;
+      transform: rotate(-10deg);
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="token-box">
+  <h2>SmartServe Token</h2>
+  <div class="token-number">Token #27</div>
+  <div class="info"><strong>Student:</strong> [Name Here]</div>
+  <div class="info"><strong>Time:</strong> 12:45 PM, 7 May 2025</div>
+  
+  <div class="items-list">
+    <p>1 x Pav Bhaji - ₹60</p>
+    <p>2 x Samosa - ₹40</p>
+    <p>1 x Poha - ₹20</p>
+  </div>
+
+  <div class="total">Total: ₹120</div>
+  <div class="paid">Payment: Done</div>
+
+  <div class="stamp">SmartServe</div>
+</div>
+
+</body>
+</html>
