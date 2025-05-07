@@ -5,7 +5,7 @@
   <title>Sinhgad Mess Menu</title>
   <style>
     body {
-      background-image: url('your-background.jpg'); /* Use your original background */
+      background-image: url('mess.bg.jpg');
       background-size: cover;
       background-position: center;
       font-family: Arial, sans-serif;
@@ -23,6 +23,7 @@
       align-items: flex-start;
       gap: 40px;
       margin-top: 40px;
+      flex-wrap: wrap;
     }
     .section {
       background-color: rgba(255, 255, 255, 0.9);
@@ -31,6 +32,7 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
       flex: 1;
       max-width: 30%;
+      min-width: 280px;
     }
     .section h2 {
       text-align: center;
@@ -50,11 +52,16 @@
     .item {
       text-align: center;
       margin-bottom: 20px;
+      cursor: pointer;
     }
     .item img {
       width: 100%;
       max-width: 160px;
       border-radius: 8px;
+      transition: transform 0.2s;
+    }
+    .item:hover img {
+      transform: scale(1.05);
     }
     .item h3 {
       margin: 8px 0 5px;
@@ -73,22 +80,22 @@
     <div class="section">
       <h2>Breakfast</h2>
       <div class="breakfast-grid">
-        <div class="item">
+        <a href="mess.sabudana.html" class="item">
           <img src="sabu.jpg" alt="Sabudana Khichdi">
           <h3>Sabudana Khichdi</h3>
           <p>₹30</p>
-        </div>
-        <div class="item">
+        </a>
+        <a href="mess.poha.html" class="item">
           <img src="poha.jpg" alt="Poha">
           <h3>Poha</h3>
           <p>₹20</p>
-        </div>
+        </a>
         <div class="tea-row">
-          <div class="item">
+          <a href="mess.tea.html" class="item">
             <img src="tea.jpg" alt="Tea/Coffee">
             <h3>Tea/Coffee</h3>
             <p>₹20</p>
-          </div>
+          </a>
         </div>
       </div>
     </div>
@@ -96,28 +103,23 @@
     <!-- Lunch Section -->
     <div class="section">
       <h2>Lunch</h2>
-      <div class="item">
+      <a href="mess.lunch.html" class="item">
         <img src="fulka.jpg" alt="Lunch">
         <h3>Fulka, Punjabi Dal, Rice, Sambar, Chapati, Pickles</h3>
         <p>Included</p>
-      </div>
+      </a>
     </div>
 
     <!-- Dinner Section -->
     <div class="section">
       <h2>Dinner</h2>
-      <div class="item">
+      <a href="mess.dinner.html" class="item">
         <img src="dinner.jpg" alt="Dinner">
         <h3>Chapati, Mutter Paneer, Dry Gobi, Rice, Sambar, Banana, Curd, Buttermilk</h3>
         <p>Included</p>
-      </div>
+      </a>
     </div>
   </div>
 
 </body>
 </html>
-    
-  
-    
-       
-    
