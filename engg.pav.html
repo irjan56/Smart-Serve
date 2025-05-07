@@ -104,11 +104,13 @@
     const totalDisplay = document.getElementById('total');
     const price = 60;
 
+    // Function to update total price based on quantity
     function updateTotal() {
       const qty = parseInt(quantityInput.value) || 1;
       totalDisplay.textContent = Total: Rs. ${qty * price};
     }
 
+    // Event listener to update the total when the quantity changes
     quantityInput.addEventListener('input', updateTotal);
 
     // Populate time options
@@ -121,6 +123,9 @@
         timeSelect.appendChild(option);
       });
     }
+
+    // Initial total calculation
+    updateTotal();
   </script>
 </body>
 </html>
