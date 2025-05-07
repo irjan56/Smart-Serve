@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Smart Serve - Item Details</title>
   <style>
     body {
@@ -82,11 +82,11 @@
 <body>
 
   <div class="container">
-    <img src="dosa.jpg" alt="Item Image" class="item-image">
+    <img src="pav.jpg" alt="Pav Bhaji" class="item-image">
 
     <div class="item-details">
-      <div class="item-name">Dosa</div>
-      <div class="item-price">₹30</div>
+      <div class="item-name">Pav Bhaji</div>
+      <div class="item-price">₹60</div>
     </div>
 
     <div class="form-group">
@@ -97,25 +97,29 @@
     <div class="form-group">
       <label for="time">Select Time:</label>
       <select id="time" name="time">
-        <!-- Time options from 7:00 to 17:00 in 15-minute steps -->
-        <script>
-          const timeSelect = document.currentScript.parentElement.querySelector('#time');
-          for (let h = 7; h <= 16; h++) {
-            for (let m = 0; m < 60; m += 15) {
-              let hour = h;
-              let minute = m.toString().padStart(2, '0');
-              let ampm = hour < 12 ? 'AM' : 'PM';
-              let hour12 = hour % 12 || 12;
-              timeSelect.innerHTML += <option>${hour12}:${minute} ${ampm}</option>;
-            }
-          }
-          timeSelect.innerHTML += <option>5:00 PM</option>;
-        </script>
+        <!-- Time options will be filled by JavaScript -->
       </select>
     </div>
 
     <button class="proceed-button">Proceed to Pay</button>
   </div>
+
+  <script>
+    const timeSelect = document.getElementById('time');
+    for (let h = 7; h <= 16; h++) {
+      for (let m = 0; m < 60; m += 15) {
+        let hour = h;
+        let minute = m.toString().padStart(2, '0');
+        let ampm = hour < 12 ? 'AM' : 'PM';
+        let hour12 = hour % 12 || 12;
+        let label = ${hour12}:${minute} ${ampm};
+        let option = document.createElement("option");
+        option.text = label;
+        timeSelect.add(option);
+      }
+    }
+    timeSelect.add(new Option("5:00 PM"));
+  </script>
 
 </body>
 </html>
