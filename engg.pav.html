@@ -50,7 +50,7 @@
       margin-bottom: 5px;
     }
 
-    input[type="number"], select {
+    input[type="number"], select, input[readonly] {
       width: 100%;
       padding: 8px;
       font-size: 16px;
@@ -58,10 +58,10 @@
       border: 1px solid #ccc;
     }
 
-    #total {
-      font-size: 18px;
-      color: red;
-      margin: 20px 0;
+    #total-label {
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 16px;
     }
 
     button {
@@ -72,6 +72,7 @@
       border-radius: 5px;
       font-size: 16px;
       cursor: pointer;
+      margin-top: 20px;
     }
 
     button:hover {
@@ -97,7 +98,10 @@
       </select>
     </div>
 
-    <div id="total">Total: Rs. 60</div>
+    <div class="input-group">
+      <label id="total-label">Total Price =</label>
+      <input type="text" id="total" readonly>
+    </div>
 
     <form action="payment.html">
       <button type="submit">Proceed to Pay</button>
@@ -107,18 +111,16 @@
   <script>
     const price = 60;
     const quantityInput = document.getElementById('quantity');
-    const totalDisplay = document.getElementById('total');
+    const totalInput = document.getElementById('total');
     const timeSelect = document.getElementById('time');
 
     function updateTotal() {
       const qty = parseInt(quantityInput.value) || 1;
-      totalDisplay.textContent = Total: Rs. ${qty * price};
+      totalInput.value = Rs. ${qty * price};
     }
 
-    // Update total when quantity changes
     quantityInput.addEventListener('input', updateTotal);
 
-    // Populate time dropdown with HH:MM AM/PM
     const minutes = ['00', '15', '30', '45'];
     for (let h = 1; h <= 12; h++) {
       for (let m of minutes) {
@@ -132,7 +134,7 @@
       }
     }
 
-    // Initialize total
+    // Initial total
     updateTotal();
   </script>
 </body>
