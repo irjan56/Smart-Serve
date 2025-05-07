@@ -24,29 +24,30 @@
       text-align: center;
     }
 
-    /* GIF video styling */
-    .gif-video {
-      max-width: 100%; /* Ensure the video takes full width */
-      height: auto;   /* Keep aspect ratio */
-      max-height: 600px; /* Control the height to avoid it being too big */
+    .wait-text {
+      font-size: 50px;  /* Large text */
+      font-weight: bold;
+      color: black;     /* Black text color */
+      text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7); /* Optional text shadow for contrast */
+      animation: fadeIn 3s ease-in-out infinite; /* Animation for text */
     }
 
-    .wait-text {
-      position: absolute;
-      bottom: 50px;
-      font-size: 50px;  /* Increased text size (double the original) */
-      font-weight: bold;
-      color: black;     /* Text color is black */
-      text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7); /* Optional text shadow for contrast */
+    /* Animation to make the text fade in and out */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
   <div class="slide-container">
-    <video class="gif-video" autoplay loop muted>
-      <source src="generating.gif(1).mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
     <div class="wait-text">Wait, your token is generating...</div>
   </div>
 </body>
