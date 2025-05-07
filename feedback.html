@@ -7,98 +7,103 @@
     body {
       margin: 0;
       padding: 0;
-      background: url('feedback.bg.jpg') no-repeat center center fixed;
+      background: url('Feedback.bg.jpg') no-repeat center center fixed;
       background-size: cover;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       font-family: Arial, sans-serif;
     }
 
-    .feedback-box {
+    .feedback-container {
+      position: absolute;
+      top: 20%;
+      right: 10%;
       background: rgba(255, 255, 255, 0.8);
       padding: 30px;
-      width: 450px;
-      text-align: center;
       border-radius: 15px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+      width: 350px;
     }
 
-    .feedback-box h2 {
-      color: #000;
-      font-size: 28px;
+    .feedback-container h2 {
+      font-size: 24px;
+      color: black;
       margin-bottom: 20px;
-      text-align: right; /* Align the message to the right */
-      padding-right: 20px;
     }
 
     .stars {
       display: flex;
-      justify-content: center;
       margin-bottom: 20px;
-    }
-
-    .star {
-      font-size: 40px;
-      color: gray;
+      font-size: 30px;
       cursor: pointer;
-      transition: color 0.2s;
     }
 
-    .star.selected {
-      color: yellow;
+    .stars span {
+      color: gray;
+      transition: color 0.3s ease;
     }
 
-    .message-box {
-      margin-top: 20px;
+    .stars span.selected {
+      color: gold;
     }
 
-    .message-box textarea {
+    textarea {
       width: 100%;
-      height: 150px;
-      border-radius: 8px;
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ddd;
+      height: 80px;
       resize: none;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #aaa;
+      font-size: 14px;
+      margin-bottom: 10px;
     }
 
+    .submit-btn {
+      float: right;
+      padding: 8px 16px;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .submit-btn:hover {
+      background-color: #333;
+    }
   </style>
 </head>
 <body>
 
-<div class="feedback-box">
-  <h2>How was your meal?</h2>
+  <div class="feedback-container">
+    <h2>How was your meal?</h2>
 
-  <div class="stars">
-    <span class="star" data-star="1">&#9733;</span>
-    <span class="star" data-star="2">&#9733;</span>
-    <span class="star" data-star="3">&#9733;</span>
-    <span class="star" data-star="4">&#9733;</span>
-    <span class="star" data-star="5">&#9733;</span>
-  </div>
+    <div class="stars" id="stars">
+      <span data-value="1">&#9733;</span>
+      <span data-value="2">&#9733;</span>
+      <span data-value="3">&#9733;</span>
+      <span data-value="4">&#9733;</span>
+      <span data-value="5">&#9733;</span>
+    </div>
 
-  <div class="message-box">
     <textarea placeholder="Please share your experience."></textarea>
+    <button class="submit-btn" onclick="submitFeedback()">Submit</button>
   </div>
-</div>
 
-<script>
-  const stars = document.querySelectorAll('.star');
-  stars.forEach(star => {
-    star.addEventListener('click', function() {
-      const selectedStar = this.getAttribute('data-star');
-      stars.forEach(star => {
-        if (star.getAttribute('data-star') <= selectedStar) {
-          star.classList.add('selected');
-        } else {
-          star.classList.remove('selected');
+  <script>
+    const stars = document.querySelectorAll('#stars span');
+    stars.forEach((star, index) => {
+      star.addEventListener('click', () => {
+        stars.forEach(s => s.classList.remove('selected'));
+        for (let i = 0; i <= index; i++) {
+          stars[i].classList.add('selected');
         }
       });
     });
-  });
-</script>
+
+    function submitFeedback() {
+      window.location.href = 'VisitAgain.html';
+    }
+  </script>
 
 </body>
 </html>
