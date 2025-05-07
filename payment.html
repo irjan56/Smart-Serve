@@ -1,44 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Payment</title>
+  <meta charset="UTF-8">
+  <title>Payment Slide</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #f5f7fa, #c3cfe2);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+    body, html {
       margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
     }
 
-    .message-box {
-      background-color: white;
-      padding: 30px;
+    .slide-container {
+      background-image: url('payment.bg.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 50px;
+      position: relative;
+    }
+
+    .content {
+      text-align: right;
+      position: relative;
+    }
+
+    .payment-photo {
+      width: 300px;
+      height: auto;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      text-align: center;
-      max-width: 400px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
 
-    h2 {
-      color: #333;
+    .continue-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #28a745;
+      color: white;
+      padding: 12px 18px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: background 0.3s ease;
     }
 
-    p {
-      font-size: 18px;
-      color: #555;
-      margin-top: 15px;
+    .continue-button:hover {
+      background-color: #218838;
     }
   </style>
 </head>
 <body>
-  <div class="message-box">
-    <h2>Payment</h2>
-    <p>Please complete your payment by <strong>Google Payment</strong> or <strong>Phone Payment</strong>.</p>
+  <div class="slide-container">
+    <div class="content">
+      <img src="paymentmethod.jpg" alt="Payment Method" class="payment-photo">
+      <a href="payment.successful.html" class="continue-button">Continue Payment</a>
+    </div>
   </div>
 </body>
 </html>
