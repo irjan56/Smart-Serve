@@ -3,23 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pav Bhaji - Order</title>
+  <title>Pav Bhaji Order</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: url('back.jpg') no-repeat center center fixed;
-      background-size: cover;
+      background: #f0f0f0;
       text-align: center;
       padding: 20px;
     }
 
-    .container {
+    .box {
       background: white;
+      padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      display: inline-block;
-      padding: 30px;
       max-width: 400px;
+      margin: auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
     img {
@@ -31,77 +30,55 @@
 
     h2 {
       color: darkviolet;
-      margin-top: 15px;
-    }
-
-    p {
-      font-size: 18px;
-      margin: 10px 0;
-    }
-
-    .input-group {
-      margin: 15px 0;
-      text-align: left;
     }
 
     label {
       font-weight: bold;
       display: block;
-      margin-bottom: 5px;
+      margin-top: 15px;
     }
 
-    input[type="number"], select, input[readonly] {
+    input, select {
       width: 100%;
       padding: 8px;
       font-size: 16px;
+      margin-top: 5px;
       border-radius: 5px;
       border: 1px solid #ccc;
     }
 
-    #total-label {
-      margin-top: 15px;
-      font-weight: bold;
-      font-size: 16px;
-    }
-
     button {
-      background-color: #4CAF50;
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
       color: white;
-      padding: 10px 25px;
+      background-color: #28a745;
       border: none;
       border-radius: 5px;
-      font-size: 16px;
       cursor: pointer;
-      margin-top: 20px;
     }
 
     button:hover {
-      background-color: #45a049;
+      background-color: #218838;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="pav.jpg" alt="Pav Bhaji">
+  <div class="box">
+    <img src="pav.jpg" alt="Pav Bhaji" />
     <h2>Pav Bhaji</h2>
     <p>Price: Rs. 60</p>
 
-    <div class="input-group">
-      <label for="quantity">Quantity:</label>
-      <input type="number" id="quantity" value="1" min="1">
-    </div>
+    <label for="quantity">Select Quantity:</label>
+    <input type="number" id="quantity" value="1" min="1" />
 
-    <div class="input-group">
-      <label for="time">Select Time:</label>
-      <select id="time">
-        <option value="" disabled selected>Select time</option>
-      </select>
-    </div>
+    <label for="time">Select Time:</label>
+    <select id="time">
+      <option disabled selected>Choose time</option>
+    </select>
 
-    <div class="input-group">
-      <label id="total-label">Total Price =</label>
-      <input type="text" id="total" readonly>
-    </div>
+    <label for="total">Total Price:</label>
+    <input type="text" id="total" readonly />
 
     <form action="payment.html">
       <button type="submit">Proceed to Pay</button>
@@ -109,36 +86,32 @@
   </div>
 
   <script>
+    const quantityInput = document.getElementById("quantity");
+    const totalInput = document.getElementById("total");
     const price = 60;
-    const quantityInput = document.getElementById('quantity');
-    const totalInput = document.getElementById('total');
-    const timeSelect = document.getElementById('time');
 
     function updateTotal() {
       const qty = parseInt(quantityInput.value) || 1;
-      const total = qty * price;
-      totalInput.value = Rs. ${total};
+      totalInput.value = "Rs. " + (qty * price);
     }
 
-    // Listen for quantity change
-    quantityInput.addEventListener('input', updateTotal);
+    quantityInput.addEventListener("input", updateTotal);
+    updateTotal(); // show default price
 
-    // Populate time options (1:00 AM to 12:45 PM)
-    const minutes = ['00', '15', '30', '45'];
+    // Populate time dropdown
+    const timeSelect = document.getElementById("time");
+    const minutes = ["00", "15", "30", "45"];
     for (let h = 1; h <= 12; h++) {
       for (let m of minutes) {
-        ['AM', 'PM'].forEach(ampm => {
-          const timeStr = ${h}:${m} ${ampm};
-          const option = document.createElement('option');
-          option.value = timeStr;
-          option.textContent = timeStr;
+        ["AM", "PM"].forEach(period => {
+          const time = ${h}:${m} ${period};
+          const option = document.createElement("option");
+          option.value = time;
+          option.textContent = time;
           timeSelect.appendChild(option);
         });
       }
     }
-
-    // Set initial total
-    updateTotal();
   </script>
 </body>
 </html>
