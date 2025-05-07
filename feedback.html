@@ -1,19 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Feedback</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('Feedback.bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .feedback-box {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 30px;
+      width: 450px;
+      text-align: center;
+      border-radius: 15px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    }
+
+    .feedback-box h2 {
+      color: #000;
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-align: right; /* Align the message to the right */
+      padding-right: 20px;
+    }
+
+    .stars {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .star {
+      font-size: 40px;
+      color: gray;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .star.selected {
+      color: yellow;
+    }
+
+    .message-box {
+      margin-top: 20px;
+    }
+
+    .message-box textarea {
+      width: 100%;
+      height: 150px;
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      resize: none;
+    }
+
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Smart Serve</h1>
-    <p>How was the food?</p>
-    <p>😟 😐 🙂</p>
-    <p>Rate the app:</p>
-    <p>⭐⭐⭐⭐⭐</p>
-    <p>Made by Tech Thinkers</p>
+
+<div class="feedback-box">
+  <h2>How was your meal?</h2>
+
+  <div class="stars">
+    <span class="star" data-star="1">&#9733;</span>
+    <span class="star" data-star="2">&#9733;</span>
+    <span class="star" data-star="3">&#9733;</span>
+    <span class="star" data-star="4">&#9733;</span>
+    <span class="star" data-star="5">&#9733;</span>
   </div>
+
+  <div class="message-box">
+    <textarea placeholder="Please share your experience."></textarea>
+  </div>
+</div>
+
+<script>
+  const stars = document.querySelectorAll('.star');
+  stars.forEach(star => {
+    star.addEventListener('click', function() {
+      const selectedStar = this.getAttribute('data-star');
+      stars.forEach(star => {
+        if (star.getAttribute('data-star') <= selectedStar) {
+          star.classList.add('selected');
+        } else {
+          star.classList.remove('selected');
+        }
+      });
+    });
+  });
+</script>
+
 </body>
 </html>
