@@ -116,11 +116,14 @@
 
     function updateTotal() {
       const qty = parseInt(quantityInput.value) || 1;
-      totalInput.value = Rs. ${qty * price};
+      const total = qty * price;
+      totalInput.value = Rs. ${total};
     }
 
+    // Listen for quantity change
     quantityInput.addEventListener('input', updateTotal);
 
+    // Populate time options (1:00 AM to 12:45 PM)
     const minutes = ['00', '15', '30', '45'];
     for (let h = 1; h <= 12; h++) {
       for (let m of minutes) {
@@ -134,7 +137,7 @@
       }
     }
 
-    // Initial total
+    // Set initial total
     updateTotal();
   </script>
 </body>
