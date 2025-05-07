@@ -1,1 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="5;url=token.html"> <!-- Redirect after 5 seconds -->
+  <title>Generating Token</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
 
+    .slide-container {
+      background-image: url('generating.bg.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      text-align: center;
+    }
+
+    .gif-video {
+      max-width: 600px;
+      height: 600px;
+    }
+
+    .wait-text {
+      position: absolute;
+      bottom: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="slide-container">
+    <video class="gif-video" autoplay loop muted>
+      <source src="generating.gif" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="wait-text">Wait, your token is generating...</div>
+  </div>
+</body>
+</html>
