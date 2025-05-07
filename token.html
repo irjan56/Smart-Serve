@@ -6,99 +6,165 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f1f1f1;
+      background: url('token.bg.jpg') no-repeat center center fixed;
+      background-size: cover;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      margin: 0;
     }
 
     .token-box {
       background: #fff;
-      border: 2px solid #333;
-      border-radius: 15px;
-      padding: 25px 30px;
-      width: 400px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      border: 3px solid #333;
+      border-radius: 20px;
+      padding: 30px 35px;
+      width: 450px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
       position: relative;
+      text-align: center;
     }
 
-    .token-box h2 {
-      text-align: center;
+    .logo-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+
+    .logo-title img {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .logo-title span {
       font-size: 24px;
-      margin-bottom: 10px;
+      font-weight: bold;
+      color: #d32f2f;
     }
 
     .token-number {
-      font-size: 28px;
+      font-size: 26px;
       font-weight: bold;
-      color: #d32f2f;
-      text-align: center;
+      color: #000;
       margin-bottom: 10px;
     }
 
     .info {
-      margin-bottom: 10px;
       font-size: 16px;
+      margin-bottom: 6px;
     }
 
-    .items-list {
-      background: #f9f9f9;
-      padding: 10px;
-      border-radius: 8px;
-      margin-bottom: 10px;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
     }
 
-    .items-list p {
-      margin: 4px 0;
+    table th, table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    table th {
+      background-color: #f2f2f2;
+      font-weight: bold;
     }
 
     .total {
-      font-weight: bold;
-      font-size: 18px;
       text-align: right;
-      margin-bottom: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 10px;
     }
 
     .paid {
       color: green;
       font-weight: bold;
-      text-align: center;
-      margin-bottom: 10px;
+      font-size: 16px;
+      margin-top: 10px;
     }
 
     .stamp {
-      font-family: 'Georgia', serif;
-      font-size: 20px;
+      width: 100px;
+      height: 100px;
+      border: 3px solid #d32f2f;
+      border-radius: 50%;
       color: #d32f2f;
-      border: 2px dashed #d32f2f;
-      display: inline-block;
-      padding: 6px 12px;
-      transform: rotate(-10deg);
+      font-weight: bold;
+      font-size: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       position: absolute;
-      bottom: 15px;
-      right: 15px;
+      bottom: 20px;
+      right: 20px;
+      transform: rotate(-15deg);
+      background-color: #fff;
+    }
+
+    .notify-btn {
+      margin-top: 30px;
+      padding: 12px 20px;
+      background-color: #d32f2f;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .notify-btn:hover {
+      background-color: #a62121;
     }
   </style>
 </head>
 <body>
 
 <div class="token-box">
-  <h2>SmartServe Token</h2>
-  <div class="token-number">Token #27</div>
-  <div class="info"><strong>Student:</strong> [Name Here]</div>
-  <div class="info"><strong>Time:</strong> 12:45 PM, 7 May 2025</div>
-  
-  <div class="items-list">
-    <p>1 x Pav Bhaji - ₹60</p>
-    <p>2 x Samosa - ₹40</p>
-    <p>1 x Poha - ₹20</p>
+  <div class="logo-title">
+    <img src="logo.jpg" alt="Logo">
+    <span>SmartServe</span>
   </div>
+
+  <div class="token-number">Token #42</div>
+  <div class="info"><strong>Student:</strong> [Name Here]</div>
+  <div class="info"><strong>Time:</strong> 11:35 AM</div>
+  <div class="info"><strong>Date:</strong> 7 May 2025</div>
+
+  <table>
+    <tr>
+      <th>Qty</th>
+      <th>Item</th>
+      <th>Price</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Pav Bhaji</td>
+      <td>₹60</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Samosa</td>
+      <td>₹40</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Poha</td>
+      <td>₹20</td>
+    </tr>
+  </table>
 
   <div class="total">Total: ₹120</div>
   <div class="paid">Payment: Done</div>
 
   <div class="stamp">SmartServe</div>
+
+  <a href="notification.html" class="notify-btn">Go to Notification</a>
 </div>
 
 </body>
