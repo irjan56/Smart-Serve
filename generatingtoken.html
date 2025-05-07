@@ -24,18 +24,20 @@
       text-align: center;
     }
 
+    /* GIF video styling */
     .gif-video {
-      max-width: 800px; /* Adjust the width as needed */
-      height: 450px;    /* Adjust the height as needed */
+      max-width: 100%; /* Ensure the video takes full width */
+      height: auto;   /* Keep aspect ratio */
+      max-height: 600px; /* Control the height to avoid it being too big */
     }
 
     .wait-text {
       position: absolute;
       bottom: 50px;
-      font-size: 30px;  /* Larger text */
+      font-size: 50px;  /* Increased text size (double the original) */
       font-weight: bold;
-      color: black;     /* Text color changed to black */
-      text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7); /* Optional for better contrast */
+      color: black;     /* Text color is black */
+      text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7); /* Optional text shadow for contrast */
     }
   </style>
 </head>
