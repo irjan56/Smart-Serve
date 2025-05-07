@@ -9,7 +9,11 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
+      background-image: url('thank.bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
     }
 
     .container {
@@ -72,6 +76,9 @@
       cursor: pointer;
       width: 100%;
       margin-top: 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
     }
 
     .proceed-button:hover {
@@ -101,7 +108,7 @@
       </select>
     </div>
 
-    <button class="proceed-button">Proceed to Pay</button>
+    <a href="payment.html" class="proceed-button">Proceed to Pay</a>
   </div>
 
   <script>
